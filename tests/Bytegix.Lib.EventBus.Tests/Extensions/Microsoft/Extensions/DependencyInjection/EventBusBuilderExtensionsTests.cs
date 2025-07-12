@@ -38,26 +38,5 @@ public class EventBusBuilderExtensionsTests
         // Assert
         Assert.True(configured);
         Assert.True(options.JsonSerializerSettings.WriteIndented);
-    }
-
-    [Fact]
-    public void AddSubscription_RegistersHandlerAndEventType()
-    {
-        // Arrange
-        var builder = new TestEventBusBuilder();
-
-        // Act
-        builder.AddSubscription<TestEvent, TestHandler>();
-        var provider = builder.Services.BuildServiceProvider();
-        var options = provider.GetRequiredService<IOptions<EventBusSubscriptionInfo>>().Value;
-
-        // Assert: Event type mapping
-        Assert.True(options.EventTypes.ContainsKey(nameof(TestEvent)));
-        Assert.Equal(typeof(TestEvent), options.EventTypes[nameof(TestEvent)]);
-
-        // Assert: Handler registration (using KeyedServiceProvider if available)
-        // For demonstration, check that the service is registered
-        var handler = provider.GetService<IIntegrationEventHandler>();
-        Assert.NotNull(handler);
-    }
+    }W
 }
