@@ -5,19 +5,15 @@ on:
   push:
     branches:
       - 'master'
-    paths:
-      - 'src/Bytegix.Core.Exceptions/**'
   pull_request:
     branches:
       - '*'
-    paths:
-      - 'src/Bytegix.Core.Exceptions/**'
   release:
     types:
       - published
 
 env:
-  SOLUTION_NAME: Bytegix.Core.Exceptions.sln
+  SOLUTION_NAME: Bytegix.Lib.EventBus.sln
 
 jobs:
   run_tests:
