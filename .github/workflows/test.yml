@@ -9,25 +9,20 @@ on:
     branches:
       - '*'
 
-env:
-  SOLUTION_NAME: Bytegix.Lib.EventBus.sln
-  DOTNET_VERSION: '9.0.x'
-  CONFIGURATION: 'Release'
-
 jobs:
   run_tests:
     name: Run Tests
     uses: ./.github/workflows/tests.template.yml
     with:
-      dotnet_version: ${{ env.DOTNET_VERSION }}
-      configuration: ${{ env.CONFIGURATION }}
-      solution_name: ${{ env.SOLUTION_NAME }}
+      dotnet_version: '9.0.x'
+      configuration: 'Release'
+      solution_name: 'Bytegix.Lib.EventBus.sln'
       
   create_nuget:
     name: Create NuGet Package
     uses: ./.github/workflows/create-nuget.template.yml
     with:
-      dotnet_version: $DOTNET_VERSION
+      dotnet_version: '9.0.x'
       nuget_directory: nuget
-      configuration: $CONFIGURATION
-      solution_name: $SOLUTION_NAME
+      configuration: 'Release'
+      solution_name: 'Bytegix.Lib.EventBus.sln'
