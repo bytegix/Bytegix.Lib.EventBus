@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36203.30 d17.14
+VisualStudioVersion = 17.14.36203.30
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytegix.Lib.EventBus", "src\Bytegix.Lib.EventBus\Bytegix.Lib.EventBus.csproj", "{9B8BB57F-0910-49A4-9FEF-9EDF8DFBBFE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9E93A936-E3CF-40FD-8EBC-7EEA70E52D8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytegix.Lib.EventBus.Tests", "tests\Bytegix.Lib.EventBus.Tests\Bytegix.Lib.EventBus.Tests.csproj", "{D902D55B-B206-494C-993C-666039EB9CAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +21,17 @@ Global
 		{9B8BB57F-0910-49A4-9FEF-9EDF8DFBBFE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B8BB57F-0910-49A4-9FEF-9EDF8DFBBFE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B8BB57F-0910-49A4-9FEF-9EDF8DFBBFE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D902D55B-B206-494C-993C-666039EB9CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D902D55B-B206-494C-993C-666039EB9CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D902D55B-B206-494C-993C-666039EB9CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D902D55B-B206-494C-993C-666039EB9CAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B8BB57F-0910-49A4-9FEF-9EDF8DFBBFE2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{D902D55B-B206-494C-993C-666039EB9CAD} = {9E93A936-E3CF-40FD-8EBC-7EEA70E52D8F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {104D0DA0-0B51-4EF5-AC6E-AE428BA1299E}

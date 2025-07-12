@@ -1,11 +1,11 @@
 ﻿using Bytegix.Lib.EventBus.Abstractions;
 using Bytegix.Lib.EventBus.Events;
 using Bytegix.Lib.EventBus.Subscription;
-using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 
-namespace Bytegix.Lib.EventBus.Extensions.Microsoft.Extensions.DependencyInjection;
+// ReSharper disable once CheckNamespace
+namespace Microsoft.Extensions.DependencyInjection;
 
 public static class EventBusBuilderExtensions
 {
