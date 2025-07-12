@@ -33,4 +33,9 @@ jobs:
           name: nuget
           path: ${{ github.workspace }}/${{ inputs.nuget_directory }}
       - name: Publish to NuGet.org
-        run: dotnet nuget push "*.nupkg" --skip-duplicate
+        run: |
+          for pkg in "${{ github.workspace }}/${{ inputs.nuget_directory }}"/*.nupkg; do
+            dotnet nuget push "$pkg" \
+              --source "${{ inputs.nuget_source }}" \
+              --skip-duplicate
+          done
