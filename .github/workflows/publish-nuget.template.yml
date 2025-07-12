@@ -22,6 +22,7 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
+      NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
     steps:
       - name: Setup .NET to use ${{ inputs.dotnet_version }}
         uses: actions/setup-dotnet@v4
@@ -32,11 +33,4 @@ jobs:
           name: nuget
           path: ${{ github.workspace }}/${{ inputs.nuget_directory }}
       - name: Publish to NuGet.org
-        run: |
-          for pkg in "${{ github.workspace }}/${{ inputs.nuget_directory }}"/*.nupkg; do
-            echo "Pushing $pkg..."
-            dotnet nuget push "$pkg" \
-              --source "${{ inputs.nuget_source }}" \
-              --api-key "${{ secrets.NUGET_API_KEY }}" \
-              --skip-duplicate
-          done
+        run: dotnet nuget push "*.nupkg" --skip-duplicate
