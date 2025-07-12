@@ -14,6 +14,7 @@ on:
 
 env:
   SOLUTION_NAME: Bytegix.Lib.EventBus.sln
+  PROJECT_DIRECTORY: src/Bytegix.Lib.EventBus
 
 jobs:
   run_tests:
@@ -29,7 +30,7 @@ jobs:
     uses: ./.github/workflows/create-nuget.template.yml
     with:
       dotnet_version: '9.0.x'
-      project_directory: src/Bytegix.Core.Exceptions
+      project_directory: $PROJECT_DIRECTORY
       nuget_directory: nuget
       configuration: 'Release'
       solution_name: $SOLUTION_NAME
