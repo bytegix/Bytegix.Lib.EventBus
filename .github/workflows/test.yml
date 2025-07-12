@@ -1,16 +1,18 @@
-name: Publish Packege
+name: Run Tests
 
 on:
   workflow_dispatch:
-  release:
-    types:
-      - published
+  push:
+    branches:
+      - 'master'
+  pull_request:
+    branches:
+      - '*'
 
 env:
   SOLUTION_NAME: Bytegix.Lib.EventBus.sln
   DOTNET_VERSION: '9.0.x'
   CONFIGURATION: 'Release'
-  NUGET_SOURCE: 'https://api.nuget.org/v3/index.json'
 
 jobs:
   run_tests:
@@ -29,12 +31,3 @@ jobs:
       nuget_directory: nuget
       configuration: $CONFIGURATION
       solution_name: $SOLUTION_NAME
-
-  publish_nuget:
-    name: Publish NuGet Package
-    uses: ./.github/workflows/publish-nuget.template.yml
-    needs: [ create_nuget, run_tests ]
-    with:
-      dotnet_version: $DOTNET_VERSION
-      nuget_source: $NUGET_SOURCE
-      nuget_directory: nuget
