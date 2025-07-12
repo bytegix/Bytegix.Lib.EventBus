@@ -38,5 +38,5 @@ public class EventBusBuilderExtensionsTests
         // Assert
         Assert.True(configured);
         Assert.True(options.JsonSerializerSettings.WriteIndented);
-    }W
+    }
 }
