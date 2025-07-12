@@ -11,10 +11,6 @@ on:
         required: false
         type: string
         default: '9.0.x'
-      project_directory:
-        required: true
-        type: string
-        description: 'The directory where the project is located'
       nuget_directory:
         required: false
         type: string
