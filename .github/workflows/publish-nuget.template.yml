@@ -33,6 +33,12 @@ jobs:
           path: ${{ github.workspace }}/${{ inputs.nuget_directory }}
       - name: Publish to NuGet.org
         run: |
+          if [ -z "$NUGET_AUTH_TOKEN" ]; then
+            echo "NUGET_AUTH_TOKEN is not set!"
+            exit 1
+          else
+            echo "NUGET_AUTH_TOKEN is set."
+          fi
           for pkg in "${{ github.workspace }}/${{ inputs.nuget_directory }}"/*.nupkg; do
             dotnet nuget push "$pkg" \
               --source "${{ inputs.nuget_source }}" \
