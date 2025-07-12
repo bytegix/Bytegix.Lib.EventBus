@@ -52,7 +52,6 @@ jobs:
       - name: Restore NuGet packages
         run: dotnet restore ${{ inputs.solution_name }}
       - run: dotnet pack --configuration ${{ inputs.configuration }} --output ${{ github.workspace }}/${{ inputs.nuget_directory }}
-        working-directory: ${{ inputs.project_directory }}
       - uses: actions/upload-artifact@v4
         with:
           name: nuget
