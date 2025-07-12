@@ -1,0 +1,48 @@
+name: Publish Packege
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'src/Bytegix.Core.Exceptions/**'
+  pull_request:
+    branches:
+      - '*'
+    paths:
+      - 'src/Bytegix.Core.Exceptions/**'
+  release:
+    types:
+      - published
+
+jobs:
+  run_tests:
+    name: Run Tests
+    uses: ./.github/workflows/tests.template.yml
+    with:
+      dotnet_version: '9.0.x'
+      configuration: 'Release'
+      
+  create_nuget:
+    name: Create NuGet Package
+    uses: ./.github/workflows/create-nuget.template.yml
+    with:
+      dotnet_version: '9.0.x'
+      project_directory: src/Bytegix.Core.Exceptions
+      nuget_directory: nuget
+      configuration: 'Release'
+      solution_name: Bytegix.Core.Exceptions.sln
+
+  publish_nuget:
+    name: Publish NuGet Package
+    uses: ./.github/workflows/publish-nuget.template.yml
+    needs: [ create_nuget, run_tests ]
+    if: |
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' && github.event.pull_request.merged == true) ||
+      (github.event_name == 'release' && startsWith(github.ref_name, 'exceptions-'))
+    with:
+      dotnet_version: '9.0.x'
+      nuget_source: 'https://api.nuget.org/v3/index.json'
+      nuget_directory: nuget

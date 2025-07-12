@@ -1,0 +1,42 @@
+name: publish-nuget-template
+
+on:
+  workflow_call:
+    inputs:
+      dotnet_version:
+        required: false
+        type: string
+        default: '9.0.x'
+      nuget_source:
+        required: false
+        type: string
+        default: 'https://api.nuget.org/v3/index.json'
+      nuget_directory:
+        required: false
+        type: string
+        default: nuget
+        description: 'The directory where the NuGet packages will be stored'
+
+jobs:
+  publish_nuget:
+    runs-on: ubuntu-24.04
+    env:
+      NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
+    steps:
+      - name: Setup .NET to use ${{ inputs.dotnet_version }}
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '${{ inputs.dotnet_version }}'
+      - uses: actions/download-artifact@v4
+        with:
+          name: nuget
+          path: ${{ github.workspace }}/${{ inputs.nuget_directory }}
+      - name: Publish to NuGet.org
+        run: |
+          for pkg in "${{ github.workspace }}/${{ inputs.nuget_directory }}"/*.nupkg; do
+            echo "Pushing $pkg..."
+            dotnet nuget push "$pkg" \
+              --source "${{ inputs.nuget_source }}" \
+              --api-key "${{ secrets.NUGET_API_KEY }}" \
+              --skip-duplicate
+          done
