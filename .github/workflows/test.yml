@@ -19,9 +19,9 @@ jobs:
     name: Run Tests
     uses: ./.github/workflows/tests.template.yml
     with:
-      dotnet_version: $DOTNET_VERSION
-      configuration: $CONFIGURATION
-      solution_name: $SOLUTION_NAME
+      dotnet_version: ${{ env.DOTNET_VERSION }}
+      configuration: ${{ env.CONFIGURATION }}
+      solution_name: ${{ env.SOLUTION_NAME }}
       
   create_nuget:
     name: Create NuGet Package
