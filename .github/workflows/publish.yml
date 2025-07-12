@@ -31,3 +31,4 @@ jobs:
       dotnet_version: '9.0.x'
       nuget_source: 'https://api.nuget.org/v3/index.json'
       nuget_directory: nuget
+      nuget_auth_token: ${{ secrets.NUGET_API_KEY }}

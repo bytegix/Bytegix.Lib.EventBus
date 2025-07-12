@@ -16,17 +16,16 @@ on:
         type: string
         default: nuget
         description: 'The directory where the NuGet packages will be stored'
+    secrets:
       nuget_auth_token:
         required: true
-        type: string
-        description: 'The NuGet API key for publishing packages'
 
 jobs:
   publish_nuget:
     runs-on: ubuntu-24.04
     env:
       NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
-      NUGET_AUTH_TOKEN: ${{ inputs.nuget_auth_token }}
+      NUGET_AUTH_TOKEN: ${{ secrets.nuget_auth_token }}
     steps:
       - name: Setup .NET to use ${{ inputs.dotnet_version }}
         uses: actions/setup-dotnet@v4
