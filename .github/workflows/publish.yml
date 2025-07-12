@@ -16,6 +16,9 @@ on:
     types:
       - published
 
+env:
+  SOLUTION_NAME: Bytegix.Core.Exceptions.sln
+
 jobs:
   run_tests:
     name: Run Tests
@@ -23,6 +26,7 @@ jobs:
     with:
       dotnet_version: '9.0.x'
       configuration: 'Release'
+      solution_name: $SOLUTION_NAME
       
   create_nuget:
     name: Create NuGet Package
@@ -32,7 +36,7 @@ jobs:
       project_directory: src/Bytegix.Core.Exceptions
       nuget_directory: nuget
       configuration: 'Release'
-      solution_name: Bytegix.Core.Exceptions.sln
+      solution_name: $SOLUTION_NAME
 
   publish_nuget:
     name: Publish NuGet Package
