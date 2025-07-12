@@ -4,7 +4,6 @@ on:
   release:
     types:
       - published
-
 jobs:
   run_tests:
     name: Run Tests
@@ -31,4 +30,5 @@ jobs:
       dotnet_version: '9.0.x'
       nuget_source: 'https://api.nuget.org/v3/index.json'
       nuget_directory: nuget
+    secrets:
       nuget_auth_token: ${{ secrets.NUGET_API_KEY }}
