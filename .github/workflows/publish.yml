@@ -17,7 +17,7 @@ jobs:
     name: Run Tests
     uses: ./.github/workflows/tests.template.yml
     with:
-      dotnet_version: $DOTNET_VERSION
+      dotnet_version: '$DOTNET_VERSION'
       configuration: $CONFIGURATION
       solution_name: $SOLUTION_NAME
       
@@ -25,7 +25,7 @@ jobs:
     name: Create NuGet Package
     uses: ./.github/workflows/create-nuget.template.yml
     with:
-      dotnet_version: $DOTNET_VERSION
+      dotnet_version: '$DOTNET_VERSION'
       nuget_directory: nuget
       configuration: $CONFIGURATION
       solution_name: $SOLUTION_NAME
@@ -35,6 +35,6 @@ jobs:
     uses: ./.github/workflows/publish-nuget.template.yml
     needs: [ create_nuget, run_tests ]
     with:
-      dotnet_version: $DOTNET_VERSION
+      dotnet_version: '$DOTNET_VERSION'
       nuget_source: $NUGET_SOURCE
       nuget_directory: nuget
