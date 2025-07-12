@@ -22,6 +22,7 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
+      NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
     steps:
       - name: Setup .NET to use ${{ inputs.dotnet_version }}
         uses: actions/setup-dotnet@v4
@@ -45,5 +46,4 @@ jobs:
               --api-key "$NUGET_AUTH_TOKEN" \
               --skip-duplicate
           done
-        env:
-          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
+          
