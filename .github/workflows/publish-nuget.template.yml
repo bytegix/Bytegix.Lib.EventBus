@@ -37,6 +37,6 @@ jobs:
           for pkg in "${{ github.workspace }}/${{ inputs.nuget_directory }}"/*.nupkg; do
             dotnet nuget push "$pkg" \
               --source "${{ inputs.nuget_source }}" \
-              --api-key "${{ secrets.NUGET_API_KEY }}" \
+              --api-key "$NUGET_AUTH_TOKEN" \
               --skip-duplicate
           done
