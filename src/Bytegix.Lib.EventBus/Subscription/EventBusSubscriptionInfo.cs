@@ -1,10 +1,9 @@
-﻿using System.Text.Json;
+﻿using Newtonsoft.Json;
 
 namespace Bytegix.Lib.EventBus.Subscription;
-
 public class EventBusSubscriptionInfo
 {
     public Dictionary<string, Type> EventTypes { get; } = [];
 
-    public JsonSerializerOptions JsonSerializerSettings { get; } = new();
+    public JsonSerializerSettings JsonSerializerSettings { get; } = new();
 }
