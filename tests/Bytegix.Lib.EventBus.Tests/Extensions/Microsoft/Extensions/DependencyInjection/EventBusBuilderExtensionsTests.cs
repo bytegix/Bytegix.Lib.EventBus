@@ -28,7 +28,7 @@ public class EventBusBuilderExtensionsTests
         // Act
         builder.ConfigureJsonOptions(options =>
         {
-            options.WriteIndented = true;
+            options.CheckAdditionalContent = true;
             configured = true;
         });
 
@@ -37,6 +37,6 @@ public class EventBusBuilderExtensionsTests
 
         // Assert
         Assert.True(configured);
-        Assert.True(options.JsonSerializerSettings.WriteIndented);
+        Assert.True(options.JsonSerializerSettings.CheckAdditionalContent);
     }
 }
