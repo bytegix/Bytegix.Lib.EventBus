@@ -42,7 +42,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="README.md" Pack="true" PackagePath="\"/>
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,6 +52,7 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
 </Project>
