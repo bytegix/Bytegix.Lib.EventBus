@@ -1,6 +1,7 @@
 # Bytegix.Lib.EventBus
 
 [![Publish Packege](https://github.com/bytegix/Bytegix.Lib.EventBus/actions/workflows/publish.yml/badge.svg)](https://github.com/bytegix/Bytegix.Lib.EventBus/actions/workflows/publish.yml)
+[![Publish Packege](https://github.com/bytegix/Bytegix.Lib.EventBus/actions/workflows/test.yml/badge.svg)](https://github.com/bytegix/Bytegix.Lib.EventBus/actions/workflows/test.yml)
 
 
 ## Development Status
