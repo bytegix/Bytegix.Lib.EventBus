@@ -2,6 +2,7 @@
 
 [![publish](https://github.com/bytegix/Bytegix.Lib.EventBus/actions/workflows/publish.yml/badge.svg)](https://github.com/bytegix/Bytegix.Lib.EventBus/actions/workflows/publish.yml)
 [![tests](https://github.com/bytegix/Bytegix.Lib.EventBus/actions/workflows/test.yml/badge.svg)](https://github.com/bytegix/Bytegix.Lib.EventBus/actions/workflows/test.yml)
+[![CodeQL](https://github.com/bytegix/Bytegix.Lib.EventBus/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/bytegix/Bytegix.Lib.EventBus/actions/workflows/github-code-scanning/codeql)
 
 
 ## Development Status
