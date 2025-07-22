@@ -1,19 +1,23 @@
 ﻿using Bytegix.Lib.EventBus.Abstractions;
 using Bytegix.Lib.EventBus.Events;
-using Bytegix.Lib.EventBus.Subscription;
-using Newtonsoft.Json;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection;
 
+public interface IEventBusBuilder
+{
+    public IServiceCollection Services { get; }
+}
+
 public static class EventBusBuilderExtensions
 {
-    public static IEventBusBuilder ConfigureJsonOptions(this IEventBusBuilder eventBusBuilder, Action<JsonSerializerSettings> configure)
+    public static IEventBusBuilder ConfigureJsonOptions(this IEventBusBuilder eventBusBuilder, Action<JsonSerializerOptions> configure)
     {
         eventBusBuilder.Services.Configure<EventBusSubscriptionInfo>(o =>
         {
-            configure(o.JsonSerializerSettings);
+            configure(o.JsonSerializerOptions);
         });
 
         return eventBusBuilder;
@@ -40,4 +44,3 @@ public static class EventBusBuilderExtensions
         return eventBusBuilder;
     }
 }
-

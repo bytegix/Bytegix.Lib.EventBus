@@ -1,6 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 
 namespace Bytegix.Lib.EventBus.Events;
+
 public record IntegrationEvent
 {
     // Properties
@@ -11,7 +12,7 @@ public record IntegrationEvent
     [JsonInclude]
     public DateTime CreationDate { get; set; }
 
-    // Constructors
+    // Constructor
     // ==============================
     public IntegrationEvent()
     {

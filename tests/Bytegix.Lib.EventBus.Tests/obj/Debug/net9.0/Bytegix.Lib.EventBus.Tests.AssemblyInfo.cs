@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bytegix.Lib.EventBus.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+497fc02cd3e02faa14749f0a060786c76c5bd344")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2786315f87def51cc3d8ef0070dd9c774246e5c2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bytegix.Lib.EventBus.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bytegix.Lib.EventBus.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

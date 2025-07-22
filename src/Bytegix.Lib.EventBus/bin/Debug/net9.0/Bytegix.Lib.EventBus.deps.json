@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v9.0": {
-      "Bytegix.Lib.EventBus/0.0.0-rc.28": {
+      "Bytegix.Lib.EventBus/0.0.0-rc.35": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.7",
           "Microsoft.Extensions.Options": "9.0.7",
@@ -48,7 +48,7 @@
     }
   },
   "libraries": {
-    "Bytegix.Lib.EventBus/0.0.0-rc.28": {
+    "Bytegix.Lib.EventBus/0.0.0-rc.35": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
