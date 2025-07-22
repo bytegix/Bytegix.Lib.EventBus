@@ -1,6 +1,5 @@
 ﻿using Bytegix.Lib.EventBus.Abstractions;
 using Bytegix.Lib.EventBus.Events;
-using Bytegix.Lib.EventBus.Subscription;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
@@ -28,7 +27,7 @@ public class EventBusBuilderExtensionsTests
         // Act
         builder.ConfigureJsonOptions(options =>
         {
-            options.CheckAdditionalContent = true;
+            options.AllowTrailingCommas = true;
             configured = true;
         });
 
@@ -37,6 +36,6 @@ public class EventBusBuilderExtensionsTests
 
         // Assert
         Assert.True(configured);
-        Assert.True(options.JsonSerializerSettings.CheckAdditionalContent);
+        Assert.True(options.JsonSerializerOptions.AllowTrailingCommas);
     }
 }
