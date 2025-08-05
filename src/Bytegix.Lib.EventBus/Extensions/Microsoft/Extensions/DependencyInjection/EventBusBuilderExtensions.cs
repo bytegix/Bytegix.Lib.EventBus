@@ -60,7 +60,7 @@ public static class EventBusBuilderExtensions
             // and we don't want to do Type.GetType, so we keep track of the name mapping here.
 
             // This list will also be used to subscribe to events from the underlying message broker implementation.
-            o.EventTypes[$"{typeof(T).Name}{EventBusConstants.DeadLetterSuffix}"] = typeof(T);
+            o.DeadLetterEventTypes[$"{typeof(T).Name}"] = typeof(T);
         });
 
         return eventBusBuilder;
